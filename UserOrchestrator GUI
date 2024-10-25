@@ -1,0 +1,935 @@
+
+<Window x:Class="UserOrchestratorGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserOrchestratorGUI"
+        mc:Ignorable="d"
+        Title="User Orchestrator" Height="850" Width="1200" Background="#FFC1BFBF" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Neu-Anlage">
+                <Grid Background="#FFC1BFBF">
+                    <Grid Background="#FFC1BFBF" >
+                        <TabControl Grid.RowSpan="2" x:Name="tabctrlNeuAnlage" >
+                            <TabItem x:Name="tabAD" Header="AD">
+                                <Grid Background="#FFC1BFBF">
+                                    <TabControl>
+                                        <TabItem Header="Allgemein">
+                                            <Grid Background="#FFC1BFBF" Height="763" Width="1186">
+                                                <GroupBox x:Name="gbADallgSet" Header="Allgemein" Margin="0,61,47,437" HorizontalAlignment="Right" Width="1105" >
+                                                    <Grid>
+                                                        <Label x:Name="lbADVN" Content="Vorname:" HorizontalAlignment="Left" Margin="27,22,0,0" VerticalAlignment="Top"/>
+                                                        <Label x:Name="lbADNN" Content="Nachname:" HorizontalAlignment="Left" Margin="27,57,0,0" VerticalAlignment="Top"/>
+                                                        <Label x:Name="lbADsynUSN" Content="Syntax Username:" HorizontalAlignment="Left" Margin="27,93,0,0" VerticalAlignment="Top"/>
+                                                        <TextBox x:Name="tbADVN" HorizontalAlignment="Left" Margin="239,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201"/>
+                                                        <TextBox x:Name="tbADNN" HorizontalAlignment="Left" Margin="239,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201"/>
+                                                        <ComboBox x:Name="cobADsynUSN" HorizontalAlignment="Left" Margin="239,96,0,0" VerticalAlignment="Top" Width="201" SelectedIndex="0">
+                                                            <ListBoxItem Content="vorname.nachname"/>
+                                                            <ListBoxItem Content="nachname.vorname"/>
+                                                            <ListBoxItem Content="v.nachname"/>
+                                                            <ListBoxItem Content="n.vorname"/>
+                                                            <ListBoxItem Content="vorname.n"/>
+                                                            <ListBoxItem Content="nachname.v"/>
+                                                            <ListBoxItem Content="nachname"/>
+                                                            <ListBoxItem Content="vorname"/>
+                                                            <ListBoxItem Content="VN"/>
+                                                            <ListBoxItem Content="NV"/>
+                                                            <ListBoxItem Content="VornameN"/>
+                                                            <ListBoxItem Content="NVorname"/>
+                                                            <ListBoxItem Content="NachnameV"/>
+                                                            <ListBoxItem Content="VNachname"/>
+                                                            <ListBoxItem Content="NachnameVorname"/>
+                                                            <ListBoxItem Content="VornameNachname"/>
+                                                        </ComboBox>
+                                                        <Label Content="individueller Benutzername:" HorizontalAlignment="Left" Margin="27,160,0,0" VerticalAlignment="Top" Width="162"/>
+                                                        <TextBox x:Name="tbADindvBN" HorizontalAlignment="Left" Margin="239,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201"/>
+                                                        <CheckBox x:Name="cbADindvBN" Content="" HorizontalAlignment="Left" Margin="204,165,0,0" VerticalAlignment="Top"/>
+                                                        <Label x:Name="lbADumgebHakentf"  Content="Clientgeräte deaktivieren:" HorizontalAlignment="Left" Margin="525,65,0,0" VerticalAlignment="Top" Width="164"/>
+                                                        <Label x:Name="lbADindvKW" Content="individuelles Kennwort:" HorizontalAlignment="Left" Margin="525,27,0,0" VerticalAlignment="Top" Height="26" Width="142"/>
+                                                        <TextBox x:Name="tbADindvKW" HorizontalAlignment="Left" Margin="739,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="219"/>
+                                                        <Label x:Name="lbADmail" Content="E-Mail Domain:" HorizontalAlignment="Left" Margin="526,131,0,0" VerticalAlignment="Top" Width="164"/>
+                                                        <Label x:Name="lbADanmeldscript" Content="Anmeldescript:" HorizontalAlignment="Left" Margin="525,161,0,0" VerticalAlignment="Top" Width="164" RenderTransformOrigin="0.479,0.119"/>
+                                                        <Label x:Name="lbADerstellOU" Content="Erstellungs-OU:" HorizontalAlignment="Left" Margin="525,192,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.001,-0.267" Width="164"/>
+                                                        <TextBox x:Name="tbADanmeldscript" HorizontalAlignment="Left" Margin="708,166,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251"/>
+                                                        <TextBox x:Name="tbADmail" HorizontalAlignment="Left" Margin="708,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+                                                        <CheckBox x:Name="cbADumgebHakenentf" Content="" HorizontalAlignment="Left" Margin="708,70,0,0" VerticalAlignment="Top"/>
+                                                        <CheckBox x:Name="cbADindvKW" Content="" HorizontalAlignment="Left" Margin="707,33,0,0" VerticalAlignment="Top"/>
+                                                        <ComboBox x:Name="cobADErstellOU" HorizontalAlignment="Left" Margin="707,194,0,0" VerticalAlignment="Top" Width="251"/>
+                                                        <Label x:Name="lbADAnmeldeDomain" Content="Anmelde-Domain:" HorizontalAlignment="Left" Margin="27,126,0,0" VerticalAlignment="Top" Width="103"/>
+                                                        <TextBox x:Name="tbADAnmeldeDomain" HorizontalAlignment="Left" Margin="239,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+                                                        <CheckBox x:Name="cbADEMailnichtverwenden" Content="keine E-Mail" HorizontalAlignment="Left" Margin="976,119,0,0" VerticalAlignment="Top"/>
+                                                        <Label Content="Suffix Anzeigename:" HorizontalAlignment="Left" Margin="27,194,0,0" VerticalAlignment="Top" Width="162"/>
+                                                        <TextBox x:Name="tbADSuffixAnzeigeName" HorizontalAlignment="Left" Margin="239,198,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201"/>
+                                                        <Label x:Name="lbADMailPraefix" Content="Präfix E-Mail:" HorizontalAlignment="Left" Margin="525,97,0,0" VerticalAlignment="Top" Width="164"/>
+                                                        <TextBox x:Name="tbADMailPraefix" HorizontalAlignment="Left" Margin="708,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+                                                        <Label x:Name="lbADMailPraefix_Copy" Content="@" HorizontalAlignment="Left" Margin="705,112,0,0" VerticalAlignment="Top" Width="22" Height="29"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                                <CheckBox x:Name="cbAD" Content="Active-Directory anlegen" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Height="22" Width="182"/>
+                                                <GroupBox x:Name="gbADsync" Header="AD-Sync" Margin="0,354,0,38" HorizontalAlignment="Center" Width="1030" >
+                                                    <Grid>
+                                                        <CheckBox x:Name="cbADsyncaktiv" Content="AD-Sync aktiv" Margin="35,21,0,310" HorizontalAlignment="Left" Width="99"/>
+                                                        <GroupBox x:Name="gbADProxyAdresses" Header="Proxy Addresses" Margin="10,62,10,25">
+                                                            <Grid>
+                                                                <ListView x:Name="lvADProxyAdresses" Margin="10,60,450,10">
+                                                                    <ListView.View>
+                                                                        <GridView>
+                                                                            <GridViewColumn Header="Protokoll" Width="100" DisplayMemberBinding="{Binding ProxyProtokoll}"/>
+                                                                            <GridViewColumn Header="Proxy-Adresse" Width="450" DisplayMemberBinding="{Binding ProxyAdresse}"/>
+                                                                        </GridView>
+                                                                    </ListView.View>
+                                                                </ListView>
+                                                                <Label x:Name="lbADProxyProtokoll" Content="Protokoll:" HorizontalAlignment="Left" Margin="625,79,0,0" VerticalAlignment="Top" Width="90"/>
+                                                                <ComboBox x:Name="cobADProxyProtokoll" HorizontalAlignment="Left" Margin="746,81,0,0" VerticalAlignment="Top" Width="186" SelectedIndex="0">
+                                                                    <ComboBoxItem Content="SMTP"/>
+                                                                    <ComboBoxItem Content="smtp"/>
+                                                                    <ComboBoxItem Content="SIP"/>
+                                                                </ComboBox>
+                                                                <TextBox x:Name="tbADProxyAdresse" HorizontalAlignment="Left" Margin="746,118,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="186"/>
+                                                                <Button x:Name="btADProxyDEL" Content="Löschen" HorizontalAlignment="Left" Margin="625,191,0,0" VerticalAlignment="Top" Width="83"/>
+                                                                <Button x:Name="btADProxyCHANGE" Content="Ändern" HorizontalAlignment="Left" Margin="746,191,0,0" VerticalAlignment="Top" Width="83"/>
+                                                                <Button x:Name="btADProxyADD" Content="Hinzufügen" HorizontalAlignment="Left" Margin="849,191,0,0" VerticalAlignment="Top" Width="83"/>
+                                                                <Label x:Name="lbADProxyAdresse"  Content="Adresse:" HorizontalAlignment="Left" Margin="625,114,0,0" VerticalAlignment="Top" Width="90"/>
+                                                                <CheckBox x:Name="cbADProxyAdressenanlegen" Content="Proxy Adresses anlegen" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top"/>
+                                                            </Grid>
+                                                        </GroupBox>
+                                                    </Grid>
+                                                </GroupBox>
+                                            </Grid>
+                                        </TabItem>
+                                        <TabItem x:Name="tabADGruppen" Header="Gruppen">
+                                            <Grid Background="#FFC1BFBF">
+                                                <GroupBox x:Name="gbADgruppen" Header="Gruppenzuordnung" Margin="24,325,24,10">
+                                                    <Grid Height="400">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="383*"/>
+                                                            <ColumnDefinition Width="133*"/>
+                                                            <ColumnDefinition Width="39*"/>
+                                                            <ColumnDefinition Width="504*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label x:Name="lbVerwend" Content="in Verwendung:" Margin="13,17,358,351" Grid.Column="3"/>
+                                                        <Label x:Name="lbAusw" Content="zur Auswahl:" HorizontalAlignment="Left" Margin="10,14,0,353" Width="78"/>
+                                                        <Button x:Name="btADMVright" Content="&gt;" HorizontalAlignment="Left" Margin="4,178,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.1,0.655" Grid.Column="2"/>
+                                                        <Button x:Name="btADMVleft" Content="&lt;" HorizontalAlignment="Left" Margin="4,222,0,0" VerticalAlignment="Top" Width="20" Grid.Column="2"/>
+                                                        <ListView x:Name="lvGruppenverf" Margin="10,59,30,10" Grid.ColumnSpan="2">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Gruppenname" Width="505" DisplayMemberBinding="{Binding GruppenNameverf}"/>
+                                                                    <GridViewColumn Header="Gruppenname" Width="0" DisplayMemberBinding="{Binding GruppenSamAccountNameverf}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <ListView x:Name="lvGruppeniV" Margin="13,59,15,11" Grid.Column="3">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Gruppenname" Width="505" DisplayMemberBinding="{Binding GruppenNameiV}"/>
+                                                                    <GridViewColumn Header="GruppenSamAccountName" Width="0" DisplayMemberBinding="{Binding GruppenSamAccountNameiV}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <Button x:Name="btADrefresh"  Content="aktualisieren + zurücksetzen" HorizontalAlignment="Left" Margin="301,22,0,0" VerticalAlignment="Top" Width="168" Grid.Column="3"/>
+                                                        <TextBox x:Name="tbADGruppenSuche" HorizontalAlignment="Left" Margin="248,22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223" Grid.ColumnSpan="2"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                                <GroupBox x:Name="gbADGruppenVergleichsbenutzer" Header="Vergleichsbenutzer" Margin="24,10,387,471">
+                                                    <Grid>
+                                                        <ListView x:Name="lvADGruppentepmplateUser" Margin="10,10,339,10">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Benutzername" Width="410" DisplayMemberBinding="{Binding Benutzername}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <Label x:Name="lbADGruppenSuche" Content="Suchen:" HorizontalAlignment="Left" Margin="456,55,0,0" VerticalAlignment="Top" Width="59"/>
+                                                        <TextBox x:Name="tbADTemplateUserSuche" HorizontalAlignment="Left" Margin="533,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
+                                                        <Button x:Name="btADGruppenVergleichsbenutzeruebernehmen" Content="Gruppen übernehmen" HorizontalAlignment="Left" Margin="456,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.555,0.208" Width="217"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                            </Grid>
+                                        </TabItem>
+                                    </TabControl>
+                                </Grid>
+                            </TabItem>
+                            <TabItem x:Name="tabMS365" Header="MS365">
+                                <Grid Background="#FFC1BFBF" Height="781">
+                                    <TabControl HorizontalAlignment="Left" Width="1193">
+                                        <TabItem Header="Allgemein" Margin="-3,1,-1,0">
+                                            <Grid Background="#FFC1BFBF">
+                                                <GroupBox x:Name="gbMS365AnmeldKDtenant" Header="Anmeldung Kundentenant" Margin="0,0,844,500" HorizontalAlignment="Right" Width="323" Height="137" VerticalAlignment="Bottom">
+                                                    <Grid>
+                                                        <Label x:Name="lbMS365AnmeldeStatus" Content="Anmelde-Status:" HorizontalAlignment="Left" Margin="11,56,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="0.524,0.274"/>
+                                                        <Button x:Name="btMS365Anmeldung" Content="MS365 Daten abrufen" HorizontalAlignment="Center" VerticalAlignment="Top" Height="24" Width="124" Margin="0,21,0,0"/>
+                                                        <TextBlock x:Name="tbkMS365Anmeld" Foreground="blue" FontWeight="Bold" Text="bitte anmelden!" HorizontalAlignment="Left" Margin="138,61,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="163" Height="43"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                                <GroupBox x:Name="gbMS365ZuweisLizenz"  Header="Zuweisung Lizenzen" Margin="5,377,25,10">
+                                                    <Grid Height="472">
+                                                        <ListView x:Name="lvMS365Lizenzverf" Margin="10,51,630,144">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Lizenzname" Width="400" DisplayMemberBinding="{Binding RealNameVerf}"/>
+                                                                    <GridViewColumn Header="Lizenzname" Width="0" DisplayMemberBinding="{Binding LizenznameVerf}"/>
+                                                                    <GridViewColumn Header="Anzahl" Width="105" DisplayMemberBinding="{Binding LizenzAnzahlVerf}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <ListView x:Name="lvMS365Lizenzzug" Margin="630,51,10,144">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Lizenzname" Width="500" DisplayMemberBinding="{Binding RealNameZug}"/>
+                                                                    <GridViewColumn Header="Lizenzname" Width="0" DisplayMemberBinding="{Binding LizenznameZug}"/>
+                                                                    <GridViewColumn Header="Anzahl" Width="0" DisplayMemberBinding="{Binding LizenzAnzahlZug}" />
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <Button x:Name="btMS365mvRight" Content=">" HorizontalAlignment="Center" Margin="0,187,0,0" VerticalAlignment="Top" Width="20"/>
+                                                        <Button x:Name="btMS365mvLeft" Content="&lt;" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20"/>
+                                                        <Label x:Name="lbADVerfuegLizenz" Content="zur Verfügung stehende Lizenzen, zur Zuordnung zum Benutzer:" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Width="356"/>
+                                                        <Label x:Name="lbADZugeLizenz" Content="dem Benutzer zugeordnete Lizenzen:" HorizontalAlignment="Left" Margin="633,12,0,0" VerticalAlignment="Top" Width="205"/>
+                                                        <Button x:Name="btMS365refresh" Content="aktualisieren + zurücksetzen" HorizontalAlignment="Left" Margin="960,15,0,0" VerticalAlignment="Top" Width="169"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                                <GroupBox x:Name="gbMS365allgemein" Header="Allgemein" Margin="365,20,25,426">
+                                                    <Grid>
+                                                        <CheckBox x:Name="cbMS365PSde" Content="Postfach Sprache auf Deutsch ändern" HorizontalAlignment="Left" Margin="30,13,0,0" VerticalAlignment="Top"/>
+                                                        <GroupBox x:Name="gbMS365indvAng" Header="Individuelle Angaben" Margin="20,42,6,17">
+                                                            <Grid>
+                                                                <CheckBox x:Name="cbMS365indivAng" Content="indiv. Angaben (ansonsten werden AD Angaben übernommen)" HorizontalAlignment="Left" Margin="13,67,0,0" VerticalAlignment="Top"/>
+                                                                <TextBox x:Name="tbMS365VN" HorizontalAlignment="Left" Margin="125,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+                                                                <TextBox x:Name="tbMS365NN" HorizontalAlignment="Left" Margin="125,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+                                                                <TextBox x:Name="tbMS365AnzeigeName" HorizontalAlignment="Left" Margin="125,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+                                                                <TextBox x:Name="tbMS365Anmeldname" HorizontalAlignment="Left" Margin="489,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+                                                                <TextBox x:Name="tbMS365mainMail" HorizontalAlignment="Left" Margin="489,129,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+                                                                <Label x:Name="lbMS365VN" Content="Vorname:" HorizontalAlignment="Left" Margin="13,96,0,0" VerticalAlignment="Top" Height="26" Width="68"/>
+                                                                <Label x:Name="lbMS365NN" Content="Nachname:" HorizontalAlignment="Left" Margin="13,127,0,0" VerticalAlignment="Top" Width="77"/>
+                                                                <Label x:Name="lbMS365Anmmeldname" Content="Präfix Anmeldename" HorizontalAlignment="Left" Margin="356,96,0,0" VerticalAlignment="Top" Width="123"/>
+                                                                <Label x:Name="lbMS365mainMail" Content="Präfix E-Mail-Adresse:" HorizontalAlignment="Left" Margin="356,127,0,0" VerticalAlignment="Top" Width="133"/>
+                                                                <Label x:Name="lbMS365AnzeigeName" Content="Suffix Anzeigename:" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="126"/>
+                                                                <Label x:Name="lbMS365Domain" Content="Suffix Domain:" HorizontalAlignment="Left" Margin="356,157,0,0" VerticalAlignment="Top" Width="133"/>
+                                                                <ComboBox x:Name="cobMS365Domain" HorizontalAlignment="Left" Margin="489,157,0,0" VerticalAlignment="Top" Width="223" SelectedIndex="0" />
+                                                                <GroupBox x:Name="gbms365indvKW" Header="individuelles Kennwort" Margin="446,4,12,0" Height="52" VerticalAlignment="Top">
+                                                                    <Grid>
+                                                                        <CheckBox x:Name="cbMS365indvKW" Margin="11,9,0,1" HorizontalAlignment="Left" Width="15"/>
+                                                                        <TextBox x:Name="tbMS365indvKW" HorizontalAlignment="Left" Margin="41,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+                                                                    </Grid>
+                                                                </GroupBox>
+                                                            </Grid>
+                                                        </GroupBox>
+                                                    </Grid>
+                                                </GroupBox>
+                                                <CheckBox x:Name="cbMS365" Content="Microsoft 365 anlegen" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Height="24" Width="176"/>
+                                            </Grid>
+                                        </TabItem>
+                                        <TabItem x:Name="tabMS365Freigaben" Header="Freigaben" Margin="-2,1,-2,0">
+                                            <Grid Background="#FFC1BFBF">
+                                                <GroupBox x:Name="gbMS365Freigaben" Header="Freigaben Zuordnung" Margin="24,320,24,10">
+                                                    <Grid>
+                                                        <Label x:Name="lbMS365FreigabenVerwend" Content="in Verwendung:" Margin="610,29,423,325"/>
+                                                        <Label x:Name="lbMS365FreigabenAusw" Content="zur Auswahl:" HorizontalAlignment="Left" Width="81" Margin="10,29,0,326"/>
+                                                        <Button x:Name="btMS365FreigabenMVright" Content="&gt;" HorizontalAlignment="Center" Margin="0,194,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.1,0.655" />
+                                                        <Button x:Name="btMS365FreigabenMVleft" Content="&lt;" HorizontalAlignment="Center" Margin="0,238,0,0" VerticalAlignment="Top" Width="20"/>
+                                                        <ListView x:Name="lvMS365Freigabenverf" Margin="10,73,605,21">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Freigabe" Width="400" DisplayMemberBinding="{Binding FreigabenAdresseverf}"/>
+                                                                    <GridViewColumn Header="Rechte" Width="105" DisplayMemberBinding="{Binding FreigabenRechtverf}"/>
+                                                                    <GridViewColumn Header="Name" Width="0" DisplayMemberBinding="{Binding FreigabenNameverf}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <ListView x:Name="lvMS365FreigabeniV" Margin="610,77,10,21">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Freigabe" Width="400" DisplayMemberBinding="{Binding FreigabenAdresseiV}"/>
+                                                                    <GridViewColumn Header="Rechte" Width="105" DisplayMemberBinding="{Binding FreigabenRechtiV}"/>
+                                                                    <GridViewColumn Header="Name" Width="0" DisplayMemberBinding="{Binding FreigabenNameverf}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <Button x:Name="btMS365Freigabenrefresh"  Content="aktualisieren + zurücksetzen" HorizontalAlignment="Left" Margin="949,33,0,0" VerticalAlignment="Top" Width="168"/>
+                                                        <TextBox x:Name="tbMS365FreigabenSuche" HorizontalAlignment="Left" Margin="105,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="280"/>
+                                                        <ComboBox x:Name="cobMS365FreigabenRechtausw" HorizontalAlignment="Left" Margin="422,32,0,0" VerticalAlignment="Top" Width="100" SelectedIndex="0" >
+                                                            <ComboBoxItem Content="V"/>
+                                                            <ComboBoxItem Content="Sa"/>
+                                                            <ComboBoxItem Content="V+Sa"/>
+                                                        </ComboBox>
+                                                    </Grid>
+                                                </GroupBox>
+                                                <GroupBox x:Name="gbMS365FreigabenSuche" Header="Vergleichsbenutzer" Margin="24,10,387,471">
+                                                    <Grid>
+                                                        <ListView x:Name="lvMS365FreigabenVergleichsbenutzer" Margin="10,10,339,10">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Benutzername" Width="410" DisplayMemberBinding="{Binding BenutzernameFreigaben}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <Label x:Name="lbMS365FreigabenVergleichsbenutzerSuche" Content="Suchen:" HorizontalAlignment="Left" Margin="456,55,0,0" VerticalAlignment="Top" Width="59"/>
+                                                        <TextBox x:Name="tbMS365FreigabenVergleichsbenutzerSuche" HorizontalAlignment="Left" Margin="533,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
+                                                        <Button x:Name="btMS365FreigabenVergleichsbenutzerSuche" Content="Freigaben übernehmen" HorizontalAlignment="Left" Margin="456,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.555,0.208" Width="217"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                            </Grid>
+                                        </TabItem>
+                                        <TabItem x:Name="tabMS365Verteiler" Header="Verteiler" Margin="-2,1,-2,0">
+                                            <Grid Background="#FFC1BFBF">
+                                                <GroupBox x:Name="gbMS365Verteiler" Header="Verteiler Zuordnung" Margin="24,325,24,10">
+                                                    <Grid Height="400">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="383*"/>
+                                                            <ColumnDefinition Width="133*"/>
+                                                            <ColumnDefinition Width="39*"/>
+                                                            <ColumnDefinition Width="504*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label x:Name="lbMS365VerteilerVerwend" Content="in Verwendung:" Margin="13,17,358,351" Grid.Column="3"/>
+                                                        <Label x:Name="lbMS365VerteilerAusw" Content="zur Auswahl:" HorizontalAlignment="Left" Margin="10,14,0,353" Width="78"/>
+                                                        <Button x:Name="btMS365VerteilerMVright" Content="&gt;" HorizontalAlignment="Left" Margin="4,178,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.1,0.655" Grid.Column="2"/>
+                                                        <Button x:Name="btMS365VerteilerMVleft" Content="&lt;" HorizontalAlignment="Left" Margin="4,222,0,0" VerticalAlignment="Top" Width="20" Grid.Column="2"/>
+                                                        <ListView x:Name="lvMS365Verteilerverf" Margin="10,59,30,25" Grid.ColumnSpan="2">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Verteilername" Width="180" DisplayMemberBinding="{Binding VerteilerNameverf}"/>
+                                                                    <GridViewColumn Header="Verteileradresse" Width="325" DisplayMemberBinding="{Binding VerteilerAdresseverf}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <ListView x:Name="lvMS365VerteileriV" Margin="13,59,15,25" Grid.Column="3">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Verteilername" Width="180" DisplayMemberBinding="{Binding VerteilerNameiV}"/>
+                                                                    <GridViewColumn Header="Verteileradresse" Width="325" DisplayMemberBinding="{Binding VerteilerAdresseiV}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <Button x:Name="btMS365Verteilerrefresh"  Content="aktualisieren + zurücksetzen" HorizontalAlignment="Left" Margin="301,22,0,0" VerticalAlignment="Top" Width="168" Grid.Column="3"/>
+                                                        <TextBox x:Name="tbMS365VerteilerSuche" HorizontalAlignment="Left" Margin="102,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                                <GroupBox x:Name="gbMS365VerteilerSuche" Header="Vergleichsbenutzer" Margin="24,10,387,471">
+                                                    <Grid>
+                                                        <ListView x:Name="lvMS365VerteilerVergleichsbenutzer" Margin="10,10,339,10">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Benutzername" Width="410" DisplayMemberBinding="{Binding BenutzernameVerteiler}"/>
+                                                                    <GridViewColumn Header="SuchName" Width="0" DisplayMemberBinding="{Binding NameVerteiler}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <Label x:Name="lbMS365VerteilerVergleichsbenutzerSuche" Content="Suchen:" HorizontalAlignment="Left" Margin="456,55,0,0" VerticalAlignment="Top" Width="59"/>
+                                                        <TextBox x:Name="tbMS365VerteilerVergleichsbenutzerSuche" HorizontalAlignment="Left" Margin="533,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
+                                                        <Button x:Name="btMS365VerteilerVergleichsbenutzerSuche" Content="Verteiler übernehmen" HorizontalAlignment="Left" Margin="456,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.555,0.208" Width="217"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                            </Grid>
+                                        </TabItem>
+                                        <TabItem x:Name="tabMS365Gruppen" Header="Gruppen" Margin="-2,1,-2,0">
+                                            <Grid Background="#FFC1BFBF">
+                                                <GroupBox x:Name="gbMS365Gruppen" Header="Gruppen Zuordnung" Margin="24,325,24,10">
+                                                    <Grid Height="400">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="383*"/>
+                                                            <ColumnDefinition Width="133*"/>
+                                                            <ColumnDefinition Width="39*"/>
+                                                            <ColumnDefinition Width="504*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label x:Name="lbMS365GruppenVerwend" Content="in Verwendung:" Margin="13,17,358,351" Grid.Column="3"/>
+                                                        <Label x:Name="lbMS365GruppenAusw" Content="zur Auswahl:" HorizontalAlignment="Left" Margin="10,14,0,353" Width="78"/>
+                                                        <Button x:Name="btMS365GruppenMVright" Content="&gt;" HorizontalAlignment="Left" Margin="4,178,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.1,0.655" Grid.Column="2"/>
+                                                        <Button x:Name="btMS365GruppenMVleft" Content="&lt;" HorizontalAlignment="Left" Margin="4,222,0,0" VerticalAlignment="Top" Width="20" Grid.Column="2"/>
+                                                        <ListView x:Name="lvMS365Gruppenverf" Margin="10,59,30,25" Grid.ColumnSpan="2">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Gruppenname" Width="180" DisplayMemberBinding="{Binding GruppenNameverf}"/>
+                                                                    <GridViewColumn Header="Gruppenadresse" Width="325" DisplayMemberBinding="{Binding GruppenAdresseverf}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <ListView x:Name="lvMS365GruppeniV" Margin="13,59,15,25" Grid.Column="3">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Gruppenname" Width="180" DisplayMemberBinding="{Binding GruppenNameiV}"/>
+                                                                    <GridViewColumn Header="Gruppenadresse" Width="325" DisplayMemberBinding="{Binding GruppenAdresseiV}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <Button x:Name="btMS365Gruppenrefresh"  Content="aktualisieren + zurücksetzen" HorizontalAlignment="Left" Margin="301,22,0,0" VerticalAlignment="Top" Width="168" Grid.Column="3"/>
+                                                        <TextBox x:Name="tbMS365GruppenSuche" HorizontalAlignment="Left" Margin="102,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                                <GroupBox x:Name="gbMS365GruppenSuche" Header="Vergleichsbenutzer" Margin="24,10,387,471">
+                                                    <Grid>
+                                                        <ListView x:Name="lvMS365GruppenVergleichsbenutzer" Margin="10,10,339,10">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Benutzername" Width="410" DisplayMemberBinding="{Binding BenutzernameGruppen}"/>
+                                                                    <GridViewColumn Header="SuchName" Width="0" DisplayMemberBinding="{Binding NameGruppen}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <Label x:Name="lbMS365GruppenVergleichsbenutzerSuche" Content="Suchen:" HorizontalAlignment="Left" Margin="456,55,0,0" VerticalAlignment="Top" Width="59"/>
+                                                        <TextBox x:Name="tbMS365GruppenVergleichsbenutzerSuche" HorizontalAlignment="Left" Margin="533,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
+                                                        <Button x:Name="btMS365GruppenVergleichsbenutzerSuche" Content="MS365 Gruppen übernehmen" HorizontalAlignment="Left" Margin="456,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.555,0.208" Width="217"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                            </Grid>
+                                        </TabItem>
+                                        <TabItem x:Name="tabMS365Ressourcen" Header="Ressourcen" Margin="-2,1,-2,0" Visibility="Hidden">
+                                            <Grid Background="#FFC1BFBF">
+                                                <GroupBox x:Name="gbMS365Ressourcen" Header="Ressourcen Zuordnung" Margin="24,325,24,10">
+                                                    <Grid Height="400">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="383*"/>
+                                                            <ColumnDefinition Width="133*"/>
+                                                            <ColumnDefinition Width="39*"/>
+                                                            <ColumnDefinition Width="504*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label x:Name="lbMS365RessourcenVerwend" Content="in Verwendung:" Margin="13,17,358,351" Grid.Column="3"/>
+                                                        <Label x:Name="lbMS365RessourcenAusw" Content="zur Auswahl:" HorizontalAlignment="Left" Margin="10,14,0,353" Width="78"/>
+                                                        <Button x:Name="btMS365RessourcenMVright" Content="&gt;" HorizontalAlignment="Left" Margin="4,178,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.1,0.655" Grid.Column="2"/>
+                                                        <Button x:Name="btMS365RessourcenMVleft" Content="&lt;" HorizontalAlignment="Left" Margin="4,222,0,0" VerticalAlignment="Top" Width="20" Grid.Column="2"/>
+                                                        <ListView x:Name="lvMS365Ressourcenverf" Margin="10,59,30,25" Grid.ColumnSpan="2">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Ressourcenname" Width="505" DisplayMemberBinding="{Binding RessourcenNameverf}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <ListView x:Name="lvMS365RessourceniV" Margin="13,59,15,25" Grid.Column="3">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Ressourcenname" Width="505" DisplayMemberBinding="{Binding RessourcenNameiV}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <Button x:Name="btMS365Ressourcenrefresh"  Content="aktualisieren + zurücksetzen" HorizontalAlignment="Left" Margin="301,22,0,0" VerticalAlignment="Top" Width="168" Grid.Column="3"/>
+                                                        <TextBox x:Name="tbMS365RessourcenSuche" HorizontalAlignment="Left" Margin="102,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                                <GroupBox x:Name="gbMS365RessourcenSuche" Header="Vergleichsbenutzer" Margin="24,10,387,471">
+                                                    <Grid>
+                                                        <ListView x:Name="lvMS365RessourcenVergleichsbenutzer" Margin="10,10,339,10">
+                                                            <ListView.View>
+                                                                <GridView>
+                                                                    <GridViewColumn Header="Benutzername" Width="410" DisplayMemberBinding="{Binding BenutzernameRessourcen}"/>
+                                                                    <GridViewColumn Header="SuchName" Width="0" DisplayMemberBinding="{Binding NameRessourcen}"/>
+                                                                </GridView>
+                                                            </ListView.View>
+                                                        </ListView>
+                                                        <Label x:Name="lbMS365RessourcenVergleichsbenutzerSuche" Content="Suchen:" HorizontalAlignment="Left" Margin="456,55,0,0" VerticalAlignment="Top" Width="59"/>
+                                                        <TextBox x:Name="tbMS365RessourcenVergleichsbenutzerSuche" HorizontalAlignment="Left" Margin="533,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
+                                                        <Button x:Name="btMS365RessourcenVergleichsbenutzerSuche" Content="Ressourcen übernehmen" HorizontalAlignment="Left" Margin="456,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.555,0.208" Width="217"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                            </Grid>
+                                        </TabItem>
+                                        <TabItem x:Name="tabMS365Erweitert" Header="Erweitert" Margin="-70,1,66,0" Visibility="Hidden">
+                                            <Grid Background="#FFC1BFBF">
+                                                <GroupBox Header="Benutzerdefinierte Attribute (Postfach)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="560" Margin="34,19,0,0" Height="620">
+                                                    <Grid>
+                                                        <Label Content="1:" Margin="21,12,505,556"/>
+                                                        <TextBox Margin="61,51,37,526" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="2:" Margin="20,46,505,521"/>
+                                                        <TextBox Margin="61,85,37,492" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="3:" Margin="20,81,499,485"/>
+                                                        <TextBox Margin="61,122,37,455" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="4:" Margin="20,117,505,449"/>
+                                                        <TextBox Margin="61,158,37,419" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="5:" Margin="20,156,505,410"/>
+                                                        <TextBox Margin="61,195,37,382" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="6:" Margin="20,192,505,374"/>
+                                                        <TextBox Margin="61,232,37,345" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="7:" Margin="20,228,499,338"/>
+                                                        <TextBox Margin="61,268,37,309" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="8:" Margin="20,262,499,303"/>
+                                                        <TextBox Margin="61,303,37,274" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="9:" Margin="20,300,499,266"/>
+                                                        <TextBox Margin="61,339,37,238" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="10:" Margin="15,337,504,235"/>
+                                                        <TextBox Margin="61,374,37,203" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="11:" Margin="15,370,505,197"/>
+                                                        <TextBox Margin="61,411,37,166" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="12:" Margin="15,406,504,161"/>
+                                                        <TextBox Margin="61,448,37,129" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="13:" Margin="14,444,505,122"/>
+                                                        <TextBox Margin="61,483,37,94" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="14:" Margin="15,480,499,93"/>
+                                                        <TextBox Margin="61,521,37,56" TextWrapping="Wrap" Text="TextBox" Width="450" Height="20"/>
+                                                        <Label Content="15:" Margin="15,517,504,52"/>
+                                                    </Grid>
+                                                </GroupBox>
+                                            </Grid>
+                                        </TabItem>
+                                    </TabControl>
+                                </Grid>
+                            </TabItem>
+                            <TabItem x:Name="tabScanner" HorizontalAlignment="Center" Height="20" Header="Scanner" VerticalAlignment="Center" Width="54">
+                                <Grid Background="#FFC1BFBF" Height="785" Width="1196">
+                                    <GroupBox x:Name="gbScannerWebinterfaces" Header="Webinterfaces" Margin="10,10,41,411">
+                                        <Grid>
+                                            <ListView x:Name="lvScannerWebinterfaces" Margin="10,55,588,25">
+                                                <ListView.View>
+                                                    <GridView>
+                                                        <GridViewColumn Header="Protokoll" Width="60" DisplayMemberBinding="{Binding Protokoll}"/>
+                                                        <GridViewColumn Header="IP-Adresse" Width="330" DisplayMemberBinding="{Binding IP}"/>
+                                                        <GridViewColumn Header="abweichender Port" Width="140" DisplayMemberBinding="{Binding abwPort}"/>
+                                                    </GridView>
+                                                </ListView.View>
+                                            </ListView>
+                                            <Label x:Name="lbScannerProtokoll" Content="Protokoll:" HorizontalAlignment="Left" Margin="725,44,0,0" VerticalAlignment="Top" Width="111"/>
+                                            <Label x:Name="lbScannerIP" Content="IP-Adresse:" HorizontalAlignment="Left" Margin="725,75,0,0" VerticalAlignment="Top" Width="111"/>
+                                            <Label x:Name="lbScannerPort" Content="abweichender Port:" HorizontalAlignment="Left" Margin="725,106,0,0" VerticalAlignment="Top"/>
+                                            <TextBox x:Name="tbScannerIP" HorizontalAlignment="Left" Margin="841,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162"/>
+                                            <TextBox x:Name="tbScannerPort" HorizontalAlignment="Left" Margin="841,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
+                                            <ComboBox x:Name="cobScannerProtokoll" HorizontalAlignment="Left" Margin="841,46,0,0" VerticalAlignment="Top" Width="162" SelectedIndex="0">
+                                                <ComboBoxItem Content="http"/>
+                                                <ComboBoxItem Content="https"/>
+                                            </ComboBox>
+                                            <Button x:Name="btScannerAdd" Content="Hinzufügen" HorizontalAlignment="Left" Margin="981,168,0,0" VerticalAlignment="Top" Width="102"/>
+                                            <Button x:Name="btScannerDel" Content="Löschen" HorizontalAlignment="Left" Margin="649,168,0,0" VerticalAlignment="Top" Width="102"/>
+                                            <Button x:Name="btScannerChange" Content="Ändern" HorizontalAlignment="Left" Margin="820,168,0,0" VerticalAlignment="Top" Width="102"/>
+                                            <CheckBox x:Name="cbScanner" Content="Scanner Webinterfaces aufrufen" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top"/>
+                                        </Grid>
+                                    </GroupBox>
+                                    <GroupBox Header="ScannerOrdner" Margin="10,379,409,197">
+                                        <Grid>
+                                            <CheckBox x:Name="cbScannerSyntaxOrdnerName" Margin="223,83,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="18"/>
+                                            <ComboBox x:Name="cobScannerSyntaxOrdnername" Margin="263,0,0,0" Height="21" VerticalAlignment="Center" HorizontalAlignment="Left" Width="187">
+                                                <ListBoxItem Content="vorname.nachname"/>
+                                                <ListBoxItem Content="nachname.vorname"/>
+                                                <ListBoxItem Content="v.nachname"/>
+                                                <ListBoxItem Content="n.vorname"/>
+                                                <ListBoxItem Content="vorname.n"/>
+                                                <ListBoxItem Content="nachname.v"/>
+                                                <ListBoxItem Content="nachname"/>
+                                                <ListBoxItem Content="vorname"/>
+                                                <ListBoxItem Content="VN"/>
+                                                <ListBoxItem Content="NV"/>
+                                                <ListBoxItem Content="VornameN"/>
+                                                <ListBoxItem Content="NVorname"/>
+                                                <ListBoxItem Content="NachnameV"/>
+                                                <ListBoxItem Content="VNachname"/>
+                                            </ComboBox>
+                                            <Label x:Name="lbScannerSyntaxOrdnername" Content="Syntax Ordnername:" Margin="40,77,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="118"/>
+                                            <Label x:Name="lbScannerOrdnerPfad" Content="Ordner Pfad:" HorizontalAlignment="Left" Margin="40,43,0,0" VerticalAlignment="Top" Width="174"/>
+                                            <TextBox x:Name="tbScannerOrdnerPfad" HorizontalAlignment="Left" Margin="263,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="485"/>
+                                            <Button x:Name="btScannerOrdnerPfad" Content="..." HorizontalAlignment="Left" Margin="222,49,0,0" VerticalAlignment="Top" Width="24"/>
+                                            <Label x:Name="lbindvScannerOrdnerName" Content="individueller Ordnername:" HorizontalAlignment="Left" Margin="40,114,0,0" VerticalAlignment="Top" Width="177"/>
+                                            <TextBox x:Name="tbindvScannerOrdnerName" HorizontalAlignment="Left" Margin="263,118,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="187"/>
+                                            <ComboBox x:Name="cobScannerOrdnerRechte" HorizontalAlignment="Left" Margin="263,150,0,0" VerticalAlignment="Top" Width="187" SelectedIndex="0">
+                                                <ComboBoxItem Content="Ändern"/>
+                                                <ComboBoxItem Content="Vollzugriff"/>
+                                            </ComboBox>
+                                            <Label x:Name="lbOScannerrdnerRechte" Content="Ordner Rechte:" HorizontalAlignment="Left" Margin="40,143,0,0" VerticalAlignment="Top" Width="174"/>
+                                            <CheckBox x:Name="cbindvScannerOrdnerName" Content="" HorizontalAlignment="Left" Margin="222,120,0,0" VerticalAlignment="Top"/>
+                                            <CheckBox x:Name="cbScannerOrdneranlegen" Content="Scanner Ordner anlegen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                                            <CheckBox x:Name="cbScannerOrdnerRechteindv" Content="" HorizontalAlignment="Left" Margin="222,153,0,0" VerticalAlignment="Top"/>
+                                        </Grid>
+                                    </GroupBox>
+                                </Grid>
+                            </TabItem>
+                            <TabItem x:Name="tabSignatur" HorizontalAlignment="Center" Header="Signatur" Width="60">
+                                <Grid Background="#FFC1BFBF" Height="781" HorizontalAlignment="Left" Width="1205">
+                                    <CheckBox x:Name="cbSignatur" Content="Signatur anlegen" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.178,0.003"/>
+                                    <Label x:Name="lbPfadSignatur" Content="Pfad Signatur Datei:" HorizontalAlignment="Left" Margin="26,56,0,0" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="tbPfadSignatur" HorizontalAlignment="Left" Margin="155,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="429"/>
+                                    <Button x:Name="btPfadSignatur"  Content="..." HorizontalAlignment="Left" Margin="602,60,0,0" VerticalAlignment="Top" Width="28"/>
+                                </Grid>
+                            </TabItem>
+                            <TabItem x:Name="tabRDP" HorizontalAlignment="Center" Height="20" Header="RDP" VerticalAlignment="Top" Width="54" Margin="0,-1,0,0">
+                                <Grid Background="#FFC1BFBF" Width="1190" Height="780">
+                                    <GroupBox x:Name="gbVPNsync" Header="VPN Benutzer synchronisieren" Margin="10,186,698,344" Visibility="Hidden">
+                                        <Grid>
+                                            <CheckBox x:Name="cbaktVPN" Content="Aktivieren" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top"/>
+                                            <Label x:Name="lbRDPVPNApplianceHN" Content="Appliance Hostname:" HorizontalAlignment="Left" Margin="61,58,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.311"/>
+                                            <Label x:Name="lbRDPVPNsrvIP" Content="Server IP-Adresse (opt.):" HorizontalAlignment="Left" Margin="61,84,0,0" VerticalAlignment="Top" Width="134"/>
+                                            <Label x:Name="lbRDPVPNBN" Content="Benutzername:" HorizontalAlignment="Left" Margin="61,113,0,0" VerticalAlignment="Top" Width="134"/>
+                                            <Label x:Name="lbRDPVPNKW" Content="Kennwort:" HorizontalAlignment="Left" Margin="59,142,0,0" VerticalAlignment="Top" Width="136"/>
+                                            <TextBox x:Name="tbRDPVPNApplianceHN" HorizontalAlignment="Left" Margin="239,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175"/>
+                                            <TextBox x:Name="tbRDPVPNBN" HorizontalAlignment="Left" Margin="239,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175"/>
+                                            <TextBox x:Name="tbRDPVPNsrvIP" HorizontalAlignment="Left" Margin="239,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175"/>
+                                            <TextBox x:Name="tbRDPVPNKW" HorizontalAlignment="Left" Margin="239,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175"/>
+                                            <Button x:Name="btRDPVPN" Content="Anmeldedaten prüfen" HorizontalAlignment="Left" Margin="61,186,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.429,-3.152" Width="122"/>
+                                            <TextBlock x:Name="tblRDPVPNreturn" HorizontalAlignment="Left" Margin="163,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+                                        </Grid>
+                                    </GroupBox>
+                                    <GroupBox x:Name="gbRDPconnect" Header="RDP Verbindung aufbauen" Margin="10,23,796,607">
+                                        <Grid Height="141">
+                                            <CheckBox x:Name="cbRDPconnectakt" Content="Aktivieren" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top"/>
+                                            <Label x:Name="lbRDPconnectSitzungsname" Content="Sitzungsname:" HorizontalAlignment="Left" Margin="51,48,0,0" VerticalAlignment="Top"/>
+                                            <ComboBox x:Name="cobRDPconnectSitzungsname" HorizontalAlignment="Left" Margin="151,52,0,0" Text="" VerticalAlignment="Top" Width="155" SelectedIndex="0"/>
+                                            <Label Content="Domain:" HorizontalAlignment="Left" Margin="51,74,0,0" VerticalAlignment="Top"/>
+                                            <ComboBox x:Name="cobRDPconnectDomain" Margin="151,79,66,0" Text="" VerticalAlignment="Top" Width="155" SelectedIndex="0"/>
+                                        </Grid>
+                                    </GroupBox>
+                                    <GroupBox x:Name="gbRDPIcons" Header="RDP Icons anlegen" Margin="555,23,209,344">
+                                        <Grid Height="389">
+                                            <CheckBox x:Name="cbRDPBsingle" Content="Büro (Name) Singlemonitor" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top"/>
+                                            <CheckBox x:Name="cbRDPBdual" Content="Büro (Name) Dualmonitor" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top"/>
+                                            <CheckBox x:Name="cbRDPHsingle" Content="HomeOffice (IP) Singlemonitor" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top"/>
+                                            <CheckBox x:Name="cbRDPHdual" Content="HomeOffice (IP) Dualmonitor" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top"/>
+                                            <Label x:Name="lbIconSitzungsname" Content="Sitzungsname:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                                            <Label x:Name="lbIconIP" Content="TS HomeOffice IP:" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top"/>
+                                            <TextBox x:Name="tbIconSitzungsname" HorizontalAlignment="Left" Margin="122,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
+                                            <TextBox x:Name="tbIconIP" HorizontalAlignment="Left" Margin="122,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
+                                            <Label x:Name="lbIcondomain" Content="Domain:" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Width="100"/>
+                                            <TextBox x:Name="tbIcondomain" HorizontalAlignment="Left" Margin="122,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
+                                            <GroupBox Header="Erstellung - unabhängig AD" Margin="10,238,10,22">
+                                                <Grid>
+                                                    <TextBox x:Name="tbIconAnzeigeName" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="0,21,0,0"/>
+                                                    <Button x:Name="btIconjetzterzeugen" Content="jetzt erzeugen" HorizontalAlignment="Left" VerticalAlignment="Center" Width="90" Height="45" Margin="292,0,0,0"/>
+                                                    <Label x:Name="lbIconAnzeigeName" Content="Anzeige Name:" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top"/>
+                                                    <Label x:Name="lbIconBenutzerName" Content="Benutzername:" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Width="90"/>
+                                                    <TextBox x:Name="tbIconBenutzerName" HorizontalAlignment="Center" Margin="0,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+                                                </Grid>
+                                            </GroupBox>
+                                            <CheckBox x:Name="cbRDPBIPsingle" Content="Büro (IP) Singlemonitor" HorizontalAlignment="Left" Margin="237,106,0,0" VerticalAlignment="Top" Width="167"/>
+                                            <CheckBox x:Name="cbRDPBIPdual" Content="Büro (IP) Dualmonitor" HorizontalAlignment="Left" Margin="237,138,0,0" VerticalAlignment="Top" Width="167"/>
+                                        </Grid>
+                                    </GroupBox>
+                                    <GroupBox Header="Einstellungen Benutzersitzung" Margin="10,463,209,21" Visibility="Hidden">
+                                        <Grid>
+                                            <RadioButton Content="Chrome" HorizontalAlignment="Left" Margin="70,102,0,0" VerticalAlignment="Top"/>
+                                            <RadioButton Content="Firefox" HorizontalAlignment="Left" Margin="70,132,0,0" VerticalAlignment="Top"/>
+                                            <RadioButton Content="MS-Edge" HorizontalAlignment="Left" Margin="70,162,0,0" VerticalAlignment="Top"/>
+                                            <Label Content="Standardbrowser:" HorizontalAlignment="Left" Margin="50,63,0,0" VerticalAlignment="Top"/>
+                                            <CheckBox Content="neue Verteilungsrichlinie erstellen und bestehende entfernen" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="347"/>
+                                            <Label Content="Standard-PDF-Reader:" HorizontalAlignment="Left" Margin="235,63,0,0" VerticalAlignment="Top" Width="132"/>
+                                            <RadioButton Content="Chrome" HorizontalAlignment="Left" Margin="259,102,0,0" VerticalAlignment="Top"/>
+                                            <RadioButton Content="Firefox" HorizontalAlignment="Left" Margin="259,132,0,0" VerticalAlignment="Top"/>
+                                            <RadioButton Content="MS-Edge" HorizontalAlignment="Left" Margin="259,162,0,0" VerticalAlignment="Top"/>
+                                            <RadioButton Content="Foxit Reader" HorizontalAlignment="Left" Margin="259,222,0,0" VerticalAlignment="Top"/>
+                                            <RadioButton Content="Adobe Reader" HorizontalAlignment="Left" Margin="259,192,0,0" VerticalAlignment="Top"/>
+                                            <RadioButton Content="PDF-X-Change" HorizontalAlignment="Left" Margin="259,252,0,0" VerticalAlignment="Top"/>
+
+                                        </Grid>
+                                    </GroupBox>
+                                </Grid>
+                            </TabItem>
+                            <TabItem x:Name="tabDATEV" HorizontalAlignment="Center" Height="20" Header="DATEV" VerticalAlignment="Center" Width="54">
+                                <Grid Background="#FFC1BFBF" Width="1190" Height="783" Margin="0,0,-2,0">
+                                    <GroupBox x:Name="gbBRVMAV" Header="Benutzerverwaltung / Mitarbeiterverwaltung" Margin="22,10,22,87">
+                                        <Grid>
+                                            <GroupBox x:Name="gbDATEVAllgemein"  Header="Allgemein"  Margin="498,13,193,461">
+                                                <Grid>
+                                                    <Label x:Name="lbDATEVtemplateUser" Content="Vergleichsbenutzer:" HorizontalAlignment="Left" Margin="16,18,0,0" VerticalAlignment="Top" Width="141" RenderTransformOrigin="0.482,0.351"/>
+                                                    <ComboBox x:Name="cobDATEVtemplateUser" HorizontalAlignment="Left" Margin="188,20,0,0" VerticalAlignment="Top" Width="211"/>
+                                                    <Label x:Name="lbDATEVsex" Content="Geschlecht neuer Benutzer:" HorizontalAlignment="Left" Margin="16,57,0,0" VerticalAlignment="Top" Width="155"/>
+                                                    <ComboBox x:Name="cobDATEVsex" HorizontalAlignment="Left" Margin="188,57,0,0" VerticalAlignment="Top" Width="212" SelectedIndex="1">
+                                                        <ComboBoxItem Content="weiblich"/>
+                                                        <ComboBoxItem Content="männlich"/>
+                                                    </ComboBox>
+                                                    <Label x:Name="lbDATEVindvusername" Content="individueller UPN:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="16,91,0,0"/>
+                                                    <TextBox x:Name="tbdATEVindvusername" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210" Margin="190,95,0,0"/>
+                                                    <CheckBox x:Name="cbDATEVindvusername" HorizontalAlignment="Left" VerticalAlignment="Top" Width="15" Margin="156,97,0,0"/>
+                                                    <CheckBox x:Name="cbDATEVkeineGruppenkopieren" Content="DATEV Rechte-Gruppen nicht vom Vergleichsbenutzer kopieren" HorizontalAlignment="Left" VerticalAlignment="Top" Width="384" Margin="16,131,0,0" />
+                                                </Grid>
+                                            </GroupBox>
+                                            <CheckBox x:Name="cbDATEVanlegen" Content="DATEV anlegen" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top"/>
+                                            <GroupBox x:Name="gbDATEVMAV" Header="Mitarbeiterverwaltung" Margin="20,209,176,10">
+                                                <Grid>
+                                                    <TextBox x:Name="tbDATEVmanr" HorizontalAlignment="Left" Margin="21,37,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="94"/>
+                                                    <Label x:Name="lbDATEVmanr" Content="Mitarbeiternummer:" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Width="115"/>
+                                                    <ListView x:Name="lvDATEVMV" Margin="20,70,300,10">
+                                                        <ListView.View>
+                                                            <GridView>
+                                                                <GridViewColumn Header="MA-Nr." Width="110" DisplayMemberBinding="{Binding DATEVMANR }"/>
+                                                                <GridViewColumn Header="Name" Width="390" DisplayMemberBinding="{Binding DATEVDisplayName}"/>
+                                                                <GridViewColumn Header="Verknüpft-Status" Width="100" DisplayMemberBinding="{Binding VerknuepftStatus}"/>
+                                                            </GridView>
+                                                        </ListView.View>
+                                                    </ListView>
+                                                    <Button x:Name="btDATEVMAauslesen" Content="Mitarbeiter auslesen" HorizontalAlignment="Left" Margin="687,125,0,0" VerticalAlignment="Top" Height="33" Width="170"/>
+                                                    <TextBlock x:Name="tbkDATEVMAauslesenStatus" HorizontalAlignment="Left" Margin="737,217,0,0" TextWrapping="Wrap" Text="auslesen ausstehend" VerticalAlignment="Top" Width="120"/>
+                                                    <Label x:Name="lbDATEVMAauslesenStatus" Content="Status:" HorizontalAlignment="Left" Margin="687,212,0,0" VerticalAlignment="Top"/>
+                                                    <CheckBox x:Name="cbDATEVkeineMV" Content="Mitarbeiter nicht anlegen" HorizontalAlignment="Left" Margin="692,75,0,0" VerticalAlignment="Top" Width="160"/>
+                                                    <TextBox x:Name="tbDATEVMVNamenSuche" HorizontalAlignment="Left" Margin="136,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+                                                    <ComboBox x:Name="cobDATEVMVStatusFilter" HorizontalAlignment="Left" Margin="526,38,0,0" VerticalAlignment="Top" Width="100" SelectedIndex="0">
+                                                        <ListBoxItem Content="kein Filter"/>
+                                                        <ListBoxItem Content="ja"/>
+                                                        <ListBoxItem Content="nein"/>
+                                                    </ComboBox>
+                                                </Grid>
+                                            </GroupBox>
+                                            <TextBlock Foreground="Red" FontWeight="Bold" HorizontalAlignment="Left" Margin="132,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" Height="47"><Run Text="Bitte beachten"/><Run Language="de-de" Text=", dass der RZ-Benutzer händisch erstellt und verknüpft werden muss!"/></TextBlock>
+                                            <TextBlock  FontWeight="Bold" HorizontalAlignment="Left" Margin="132,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" Height="47"><Run Language="de-de" Text="Der DATEV-Connect Server muss in den Einstellungen eingetragen sein."/></TextBlock>
+                                        </Grid>
+                                    </GroupBox>
+                                    <GroupBox Header="Anwendungen starten" Margin="22,708,922,26">
+                                        <Grid>
+                                            <CheckBox x:Name="cbDATEVLizenzverwaltungOnlinestarten" Content="Lizenzverwaltung Online starten" HorizontalAlignment="Left" Margin="22,0,0,0" VerticalAlignment="Center"/>
+                                        </Grid>
+                                    </GroupBox>
+                                </Grid>
+                            </TabItem>
+                            <TabItem x:Name="tabStart" HorizontalAlignment="Center" Height="20" Header="Start" VerticalAlignment="Center" Width="54">
+                                <Grid Background="#FFC1BFBF">
+                                    <TextBlock x:Name="tblStart" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="643" Width="988" Margin="0,89,0,0" RenderTransformOrigin="0.5,0.5">
+                                        <TextBlock.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform AngleX="-0.087"/>
+                                                <RotateTransform/>
+                                                <TranslateTransform X="-0.498"/>
+                                            </TransformGroup>
+                                        </TextBlock.RenderTransform>
+                                    </TextBlock>
+                                    <Button x:Name="btStart" Content="START" Margin="827,10,100,0" VerticalAlignment="Top" Height="39"/>
+                                    <Button x:Name="btReport" Content="Zusammenfassung generieren" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top" Width="192" Height="39"/>
+                                </Grid>
+                            </TabItem>
+                        </TabControl>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabctrlDeaktivierung" Header="Deaktivierung" Visibility="Hidden">
+                <Grid Background="#FFC1BFBF">
+                    <TabControl>
+                        <TabItem x:Name="tabdeaktAD" Header="AD" Margin="-2,0,-2,0">
+                            <Grid Background="#FFC1BFBF" Height="781" Width="1192">
+                                <CheckBox x:Name="cbdeaktAD" Content="Active Directory deaktivieren" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top"/>
+                                <GroupBox x:Name="gbdeaktADBenutzer" Header="Benutzer" Margin="48,66,743,587">
+                                    <Grid>
+                                        <Label x:Name="lbdeaktADBenutzer" Content="Benutzer:" HorizontalAlignment="Left" Margin="20,14,0,0" VerticalAlignment="Top"/>
+                                        <ComboBox x:Name="cobdeaktADBenutzer" HorizontalAlignment="Left" Margin="185,16,0,0" VerticalAlignment="Top" Width="194" SelectedIndex="0" DisplayMemberPath="Name"/>
+                                        <ComboBox x:Name="cobdeaktMVOU" HorizontalAlignment="Left" Margin="185,47,0,0" VerticalAlignment="Top" Width="194" DisplayMemberPath="Name"/>
+                                        <CheckBox x:Name="cbdeaktMVOU" Content="verschieben in OU:" HorizontalAlignment="Left" Margin="20,50,0,0" VerticalAlignment="Top" Width="160"/>
+                                        <CheckBox x:Name="cbdeaktADsyncstarten" Content="AD-Sync starten" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" Width="160"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox x:Name="gbdeaktADgruppen" Header="Gruppenzuordnung" Margin="20,248,28,51">
+                                    <Grid Height="400">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="383*"/>
+                                            <ColumnDefinition Width="133*"/>
+                                            <ColumnDefinition Width="39*"/>
+                                            <ColumnDefinition Width="504*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label x:Name="lbdeaktVerwend" Content="Mitgliedschaft entfernen:" Margin="13,17,358,351" Grid.Column="3"/>
+                                        <Label x:Name="lbdeaktAusw" Content="in Verwendung:" HorizontalAlignment="Left" Margin="10,14,0,353" Width="98"/>
+                                        <Button x:Name="btdeaktADMVright" Content="&gt;" HorizontalAlignment="Left" Margin="4,178,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="2.1,0.655" Grid.Column="2"/>
+                                        <Button x:Name="btdeaktADMVleft" Content="&lt;" HorizontalAlignment="Left" Margin="4,222,0,0" VerticalAlignment="Top" Width="20" Grid.Column="2"/>
+                                        <ListView x:Name="lvdeaktGruppenverf" Margin="10,59,30,10" Grid.ColumnSpan="2">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Header="Gruppenname" Width="505" DisplayMemberBinding="{Binding deaktGruppenNameiV}"/>
+                                                    <GridViewColumn Header="Gruppenname" Width="0" DisplayMemberBinding="{Binding deaktGruppenSamAccountNameiV}"/>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                        <ListView x:Name="lvdeaktGruppeniV" Margin="13,59,15,11" Grid.Column="3">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Header="Gruppenname" Width="505" DisplayMemberBinding="{Binding deaktGruppenNameEntf}"/>
+                                                    <GridViewColumn Header="GruppenSamAccountName" Width="0" DisplayMemberBinding="{Binding deaktGruppenSamAccountNameEntf}"/>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox x:Name="gbFSLogix" Header="FS-Logix" Margin="485,46,28,568">
+                                    <Grid>
+                                        <Label x:Name="lbFSLogixContainerOrdner" Content="Container Ordner:" HorizontalAlignment="Left" Margin="10,9,0,103" Width="108"/>
+                                        <ComboBox x:Name="cobFSLogixContainerOrdner" Margin="123,12,10,110" DisplayMemberPath="FolderName"/>
+                                        <TextBox x:Name="tbFSLogixverschiebeOrdner" HorizontalAlignment="Left" Margin="123,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="503"/>
+                                        <Button x:Name="btFSLogixverschiebeOrdnerAuswahl" Content="..." HorizontalAlignment="Left" Margin="631,42,0,0" VerticalAlignment="Top" Width="25"/>
+                                        <Label x:Name="lbFSLogixverschiebeOrdner" Content="verschieben nach:" HorizontalAlignment="Left" Margin="10,39,0,73" Width="108"/>
+                                        <CheckBox x:Name="cbFSLogixProfileDEL" Content="Profile VHDX löschen" Margin="123,84,363,43"/>
+                                        <CheckBox x:Name="cbFSLogixProfileMV" Content="Profile VHDX verschieben" Margin="123,110,363,17"/>
+                                        <CheckBox x:Name="cbFSLogixODFCDEL" Content="ODFC VHDX löschen" Margin="360,84,126,43"/>
+                                        <CheckBox x:Name="cbFSLogixODFCMV" Content="ODFC VHDX verschieben" Margin="360,110,126,17"/>
+
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tabdeaktMS365" Header="MS365" Margin="0,0,-7,0">
+                            <Grid Background="#FFC1BFBF">
+                                <CheckBox x:Name="cbdeaktMS365" Content="MS365 deaktivieren" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top"/>
+                                <GroupBox x:Name="gbdeaktMS365Allgemein" Header="Allgemein" Margin="571,0,43,430" Height="320" VerticalAlignment="Bottom">
+                                    <Grid>
+                                        <CheckBox x:Name="cbdeaktinFreigabe" Content="Postfach in Freigabe-Postfach umwandeln" Margin="20,58,281,216"/>
+                                        <CheckBox x:Name="cbdeaktausglobalenAdresslistenentf" Content="Postfach aus der globalen Adressliste entfernen (nur für in-Cloud Konten)" Margin="20,87,119,0" VerticalAlignment="Top"/>
+                                        <CheckBox x:Name="cbdeaktPostfachWeiterleitung" Content="E-Mails weiterleiten an:" Margin="20,147,372,0" Height="25" VerticalAlignment="Top"/>
+                                        <CheckBox x:Name="cbdeaktPostfachWeiterleitungCopy" Content="mit Kopie" Margin="445,148,19,0" VerticalAlignment="Top"/>
+                                        <Label x:Name="lbdeaktBenutzer" Content="Aktionen für diesen Benutzer ausführen:" Margin="10,17,317,250"/>
+                                        <ComboBox x:Name="cobdeaktMS365Benutzer" Margin="250,19,33,252" SelectedIndex="0" DisplayMemberPath="DisplayName"/>
+                                        <CheckBox x:Name="cbdeaktPostfachVollzugriff" Content="Vollzugriff für Benutzer:" Margin="20,118,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150"/>
+                                        <ComboBox x:Name="cobdeaktPostfachVollzugriff" Margin="195,114,134,0" VerticalAlignment="Top" SelectedIndex="0" DisplayMemberPath="DisplayName"/>
+                                        <CheckBox x:Name="cbdeaktPostfachFreigabeRechteentf"  Content="Rechte auf Postfächer und Freigaben entfernen" Margin="20,177,250,0" VerticalAlignment="Top"/>
+                                        <CheckBox x:Name="cbdeaktMitgliedVerteilerentf" Content="Verteiler-Mitgliedschaften entfernen" Margin="20,207,242,0" VerticalAlignment="Top"/>
+                                        <CheckBox x:Name="cbdeaktMitgliedGruppenentf" Content="Gruppen-Mitgliedschaften entfernen" Margin="20,237,242,0" VerticalAlignment="Top"/>
+                                        <CheckBox x:Name="cbdeaktAnmeldungO365deaktivieren"  Content="Anmeldung sperren (nur für in-Cloud Konten)" Margin="20,267,260,0" VerticalAlignment="Top"/>
+                                        <ComboBox x:Name="cobdeaktMS365WeiterleitungAdresse" Margin="195,145,134,0" VerticalAlignment="Top" SelectedIndex="0" DisplayMemberPath="DisplayName"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox x:Name="gbdeaktMS365Lizenzen" Header="Lizenzen" Margin="10,371,10,10">
+                                    <Grid>
+                                        <ListView x:Name="lvdeaktMS365LizenzZug" Margin="10,68,635,18">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Header="Lizenzname" Width="290" DisplayMemberBinding="{Binding RealName}"/>
+                                                    <GridViewColumn Width="0" DisplayMemberBinding="{Binding SkuPartNumber}"/>
+                                                    <GridViewColumn Header="Anzahl gebucht" Width="105" DisplayMemberBinding="{Binding PrepaidUnits}"/>
+                                                    <GridViewColumn Header="Anzahl verwendet" Width="110" DisplayMemberBinding="{Binding ConsumedUnits}"/>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                        <ListView x:Name="lvdeaktMS365LizenzEntf" Margin="633,68,10,18">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Header="Lizenzname" Width="310" DisplayMemberBinding="{Binding RealName}"/>
+                                                    <GridViewColumn Width="0" DisplayMemberBinding="{Binding SkuPartNumber}"/>
+                                                    <GridViewColumn Width="0" DisplayMemberBinding="{Binding PrepaidUnits}"/>
+                                                    <GridViewColumn Width="0" DisplayMemberBinding="{Binding ConsumedUnits}"/>
+                                                    <GridViewColumn Header="im PartnerCenter reduzieren auf" Width="205" DisplayMemberBinding="{Binding ReduzierungPartnerCenter}"/>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                        <Button x:Name="btdeaktMS365mvRight" Content=">" HorizontalAlignment="Center" Margin="0,205,0,0" VerticalAlignment="Top" Width="20"/>
+                                        <Button x:Name="btdeaktMS365mvLeft" Content="&lt;" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Width="20"/>
+                                        <Label x:Name="lbdeaktADiVLizenz" Content="dem Benutzer zugeordnete Lizenzen:&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="356"/>
+                                        <Label x:Name="lbADdeaktEntfLizenz" Content="zu entfernende Lizenzen:" HorizontalAlignment="Left" Margin="633,24,0,0" VerticalAlignment="Top" Width="205"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox x:Name="gbdeaktMS365Anmeldeinformationen" Header="Anmeldung Kundentenant" Margin="109,112,744,526">
+                                    <Grid>
+                                        <Label x:Name="lbdeaktMS365AnmeldeStatus" Content="Anmelde-Status:" HorizontalAlignment="Left" Margin="16,58,0,0" VerticalAlignment="Top" Width="105"/>
+                                        <Button x:Name="btdeaktMS365Anmeldung" Content="MS365 Daten abrufen" HorizontalAlignment="Center" VerticalAlignment="Top" Height="24" Width="124" Margin="0,17,0,0"/>
+                                        <TextBlock x:Name="tbkdeaktMS365Anmeld" Foreground="blue" FontWeight="Bold" Text="bitte anmelden!" HorizontalAlignment="Left" Margin="143,63,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" Height="44"/>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tabdeaktScanner" Header="Scanner" Margin="6,0,-12,0">
+                            <Grid Background="#FFC1BFBF">
+                                <GroupBox x:Name="gbdeaktScannerWebinterfaces" Header="Webinterfaces" Margin="20,22,0,0" Height="64" VerticalAlignment="Top" HorizontalAlignment="Left" Width="291">
+                                    <Grid>
+                                        <CheckBox x:Name="cbdeaktScanner" Content="Webinterfaces zur Deaktivierung aufrufen" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox x:Name="gbdeaktScannerOrdnerEntf" Header="Scanner-Ordner" Margin="20,117,0,0" Height="113" VerticalAlignment="Top" HorizontalAlignment="Left" Width="512">
+                                    <Grid>
+                                        <TextBox x:Name="tbdeaktScannerOrdnerEntf" HorizontalAlignment="Left" Margin="54,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="392" Height="24"/>
+                                        <Label x:Name="lbdeaktScannerOrdnerEntf" Content="Pfad:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="39" Height="24"/>
+                                        <Button x:Name="btdeaktScannerOrdnerAusw" Content="..." HorizontalAlignment="Left" Margin="451,46,0,0" VerticalAlignment="Top" Width="30" Height="24"/>
+                                        <CheckBox x:Name="cbdeaktScannerOrdnerEntf" Content="Scanner-Ordner löschen" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top"/>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tabdeaktStart" Header="Start" Margin="76,0,-94,0" RenderTransformOrigin="0.682,0.455">
+                            <Grid Background="#FFC1BFBF">
+                                <Button x:Name="btdeaktStart" Content="START" Margin="827,10,100,0" VerticalAlignment="Top" Height="39"/>
+                                <Button x:Name="btdeaktZusammenfassunggenerieren" Content="Zusammenfassung generieren" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top" Width="192" Height="39"/>
+                                <TextBlock x:Name="tbkdeaktStart" HorizontalAlignment="Center" Margin="0,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="656" Width="988"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tabdeaktDATEV" Header="DATEV" Margin="-25,0,7,0" RenderTransformOrigin="0.682,0.455">
+                            <Grid Background="#FFC1BFBF">
+                                <GroupBox x:Name="gbdeaktDATEV" Header="Deaktivierung" Margin="20,20,483,372">
+                                    <Grid>
+                                        <GroupBox x:Name="gbdeaktDATEVBenutzer" Header="DATEV-Benutzer" Margin="0,10,0,0" HorizontalAlignment="Center" Width="637" Height="95" VerticalAlignment="Top">
+                                            <Grid>
+                                                <Label x:Name="lbdeaktDATEVStatusBenutzer" Content="Status DATEV-Benutzer:" HorizontalAlignment="Left" Margin="24,8,0,0" VerticalAlignment="Top" Width="136"/>
+                                                <TextBlock x:Name="tbkdeaktDATEVStatusBenutzer" HorizontalAlignment="Left" Margin="196,13,0,0" TextWrapping="Wrap" Text="Auslesen ausstehend" VerticalAlignment="Top" Width="410"/>
+                                                <CheckBox x:Name="cbdeaktDATEVBenutzer" Content="DATEV-Benutzer deaktivieren" HorizontalAlignment="Left" Margin="27,48,0,0" VerticalAlignment="Top" Width="183"/>
+                                            </Grid>
+                                        </GroupBox>
+                                        <GroupBox x:Name="gbdeaktDATEVMitarbeiter" Header="DATEV-Mitarbeiter" Margin="0,124,0,0" HorizontalAlignment="Center" Width="637" Height="96" VerticalAlignment="Top">
+                                            <Grid>
+                                                <Label x:Name="lbdeaktDATEVStatusMitarbeiter" Content="Status DATEV-Mitarbeiter:" HorizontalAlignment="Left" Margin="24,8,0,0" VerticalAlignment="Top" Width="164"/>
+                                                <TextBlock x:Name="tbkdeaktDATEVStatusMitarbeiter" HorizontalAlignment="Left" Margin="196,13,0,0" TextWrapping="Wrap" Text="Auslesen ausstehend" VerticalAlignment="Top" Width="410"/>
+                                                <CheckBox x:Name="cbdeaktDATEVMitarbeiter" Content="DATEV Mitarbeiter deaktivieren" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top" Width="210"/>
+                                            </Grid>
+                                        </GroupBox>
+                                        <GroupBox x:Name="gbdeaktDATEVRechte" Header="DATEV-Rechte" Margin="18,240,18,0" Height="98" VerticalAlignment="Top">
+                                            <Grid>
+                                                <Label x:Name="lbdeaktDATEVGruppenentf" Content="Status DATEV-Gruppen:" HorizontalAlignment="Left" Margin="24,8,0,0" VerticalAlignment="Top" Width="164"/>
+                                                <TextBlock x:Name="tbkdeaktDATEVGruppenentf" HorizontalAlignment="Left" Margin="196,13,0,0" TextWrapping="Wrap" Text="Auslesen ausstehend" VerticalAlignment="Top" Width="410"/>
+                                                <CheckBox x:Name="cbdeaktDATEVRechteGruppenentf" Content="Rechte-Gruppen entfernen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="24,50,0,0"/>
+                                            </Grid>
+                                        </GroupBox>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabctrlEinstellungen" Header="Einstellungen">
+                <Grid>
+                    <Grid Background="#FFC1BFBF" Width="1191" Margin="2,0,1,0" Height="806" VerticalAlignment="Center">
+                        <GroupBox Header="Neu-Anlage - Template-Datei" Margin="29,10,651,650">
+                            <Grid>
+                                <Label x:Name="lbUSRAnlageVorlagePfad" Content="Pfad Template-Datei:" HorizontalAlignment="Left" Margin="13,19,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="tbUSRAnlageVorlagePfad" HorizontalAlignment="Left" Margin="137,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="306" Height="37"/>
+                                <Button x:Name="btUSRAnlageVorlagePfadausw" Content="..." HorizontalAlignment="Left" Margin="454,14,0,0" VerticalAlignment="Top" Width="33" Height="36"/>
+                                <Button x:Name="btUSRAnlageVorlageoeffnen" Content="Öffnen" HorizontalAlignment="Left" Margin="45,72,0,0" VerticalAlignment="Top" Width="146" Height="40"/>
+                                <Button x:Name="btUSRAnlageVorlageSpeichern" Content="Default-Speichern" HorizontalAlignment="Left" Margin="295,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.505,-0.649" Width="146" Height="40"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="Deaktivierung - Template-Datei" Margin="639,10,44,650" Visibility="Hidden">
+                            <Grid>
+                                <Label x:Name="lbUSRArchivierenVorlagePfad" Content="Pfad Template-Datei:" HorizontalAlignment="Left" Margin="13,19,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="tbUSRArchivierenVorlagePfad" HorizontalAlignment="Left" Margin="138,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="304" Height="37"/>
+                                <Button x:Name="btUSRArchivierenVorlagePfadausw" Content="..." HorizontalAlignment="Left" Margin="454,14,0,0" VerticalAlignment="Top" Width="33" Height="36"/>
+                                <Button x:Name="btUSRArchivierenVorlageoeffnen" Content="Öffnen" HorizontalAlignment="Left" Margin="45,72,0,0" VerticalAlignment="Top" Width="146" Height="40"/>
+                                <Button x:Name="btUSRArchivierenVorlageSpeichern" Content="Default-Speichern" HorizontalAlignment="Left" Margin="295,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.505,-0.649" Width="146" Height="40"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="Verbindungseinstellungen" Margin="357,183,0,512" HorizontalAlignment="Left" Width="477">
+                            <Grid>
+                                <Label x:Name="lbDATEVconnectSRV" Content="DATEV-Connect-Server:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="37,15,0,0"/>
+                                <TextBox x:Name="tbDATEVconnectSRV" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="210" Margin="193,19,0,0" Height="18" VerticalAlignment="Top"/>
+                                <TextBox x:Name="tbADSyncindvServer" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210" Margin="193,56,0,0"/>
+                                <CheckBox x:Name="cbADSyncindvServer" Content="indv. AD-Sync-Server:" HorizontalAlignment="Left" Margin="37,56,0,0" Width="138" Height="15" VerticalAlignment="Top"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox x:Name="gbPreCheck" Header="Pre-Check" Margin="29,313,0,10" HorizontalAlignment="Left" Width="1132">
+                            <Grid>
+                                <GroupBox x:Name="gbMXCheck" Header="MX-Check" Margin="20,10,482,0" Height="187" VerticalAlignment="Top">
+                                    <Grid>
+                                        <Label x:Name="lbMXCheckDomain" Content="Domain:" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
+                                        <TextBox x:Name="tbMXCheckDomain"  TextWrapping="Wrap" VerticalAlignment="Top" Margin="101,19,330,0"/>
+                                        <Button x:Name="btMXCheckDomain" Content="Check&#xD;&#xA;MX" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="466,0,0,0" Height="80" Width="80"/>
+                                        <TextBlock x:Name="tbkMXCheckAnderesMailsystem" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Anderes Mailsystem" VerticalAlignment="Top" Margin="238,59,0,0"/>
+                                        <TextBlock x:Name="tbkMXChecknMail" HorizontalAlignment="Left" TextWrapping="Wrap" Text="nMail" VerticalAlignment="Top" Margin="14,59,0,0" Width="64" Height="25"/>
+                                        <TextBlock x:Name="tbkMXCheckExchangeOnline" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Exchange Online" VerticalAlignment="Top" Margin="103,59,0,0" Width="130" Height="26"/>
+                                        <TextBlock x:Name="tbkMXCheckRecord" HorizontalAlignment="Left" Margin="103,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"/>
+                                        <Label x:Name="lbMXCheck" Content="MX-Record:" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox x:Name="gbADsyncCheck" Header="AD-Sync-Check" Margin="20,213,482,0" Height="235" VerticalAlignment="Top">
+                                    <Grid>
+                                        <Label x:Name="lbADsyncPruefServer" Content="Prüf-Server:" HorizontalAlignment="Left" Margin="19,25,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox x:Name="cbADsyncAlleServer" Content="" HorizontalAlignment="Left" Margin="141,61,0,0" VerticalAlignment="Top" Width="16"/>
+                                        <TextBox x:Name="tbADsyncPruefServer" HorizontalAlignment="Left" Margin="141,29,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
+                                        <TextBlock x:Name="tbkADsyncServer" HorizontalAlignment="Left" Margin="141,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" Height="93"/>
+                                        <Button x:Name="btADsyncCheck" Content="Check &#xD;&#xA;AD-Sync" HorizontalAlignment="Left" Margin="473,59,0,0" VerticalAlignment="Top" Height="80" Width="80"/>
+                                        <Label x:Name="lbADsyncAlleServer" Content="alle Server prüfen:" HorizontalAlignment="Left" Margin="19,55,0,0" VerticalAlignment="Top"/>
+                                        <Label x:Name="lbADSyncServer" Content="AD-Sync-Server:" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox x:Name="gbDATEVconnectServer" Header="DATEV-Connect-Check" Margin="647,93,21,0" Height="266" VerticalAlignment="Top">
+                                    <Grid>
+                                        <Label x:Name="lbDATEVconnectPruefServer" Content="Prüf-Server:" HorizontalAlignment="Left" Margin="21,20,0,0" VerticalAlignment="Top" Width="77"/>
+                                        <CheckBox x:Name="cbDATEVconnectAlleServer" Content="" HorizontalAlignment="Left" Margin="175,56,0,0" VerticalAlignment="Top"/>
+                                        <Label x:Name="lbDATEVConnectAlleServer" Content="alle Server prüfen:" HorizontalAlignment="Left" Margin="21,51,0,0" VerticalAlignment="Top" Width="109"/>
+                                        <Label Content="DATEV-Connect-Server:" HorizontalAlignment="Left" Margin="21,82,0,0" VerticalAlignment="Top" Width="133"/>
+                                        <TextBlock x:Name="tbkDATEVconnectServer" HorizontalAlignment="Left" Margin="169,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="117" Width="237"/>
+                                        <Button x:Name="btDATEVconnectpruefen" Content="Check&#xD;&#xA;DATEV-&#xD;&#xA;Connect" HorizontalAlignment="Left" Margin="48,130,0,0" VerticalAlignment="Top" Width="80" Height="80"/>
+                                        <TextBox x:Name="tbDATEVconnectPruefServer" HorizontalAlignment="Left" Margin="175,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
+                    <Button x:Name="btToolVerzoeffnen" Content="Tool-Verzeichnis öffnen" HorizontalAlignment="Left" Margin="105,224,0,0" VerticalAlignment="Top" Height="37" Width="195"/>
+                    <Button x:Name="btProgramDataVerzoeffnen" Content="ProgramData-Verzeichnis öffnen" Margin="894,224,105,0" VerticalAlignment="Top" Height="37"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
